@@ -14,6 +14,9 @@ services:
       - target: 25575
         published: 25575
         protocol: tcp
+      - target: 19132
+        published: 19132
+        protocol: udp
     environment:
       JAVA_TOOL_OPTIONS: "-Xms1G -Xmx1G"
     stdin_open: true
@@ -28,14 +31,14 @@ services:
         source: ./backup
         target: /backups
     network_mode: "service:server"
-  geyser:
-    build: ./Geyser
-    image: geyser-docker:openjdk-17-slim-buster
-    volumes:
-      - type: bind
-        source: ./Geyser/data
-        target: /data
-    ports:
-      - target: 19132
-        published: 19132
-        protocol: udp
+  # geyser:
+  #   build: ./Geyser
+  #   image: geyser-docker:openjdk-17-slim-buster
+  #   volumes:
+  #     - type: bind
+  #       source: ./Geyser/data
+  #       target: /data
+  #   ports:
+  #     - target: 19132
+  #       published: 19132
+  #       protocol: udp
