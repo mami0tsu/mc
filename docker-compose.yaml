@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  server:
+    image: sksat/papermc-docker:1.18.1-openjdk-17-slim-buster
+    volumes:
+      - type: bind
+        source: ./data
+        target: /app
+    ports:
+      - target: 25565
+        published: 25565
+        protocol: tcp
+      - target: 25575
+        published: 25575
+        protocol: tcp
+    environment:
+      JAVA_TOOL_OPTIONS: "-Xms1G -Xmx1G"
+    stdin_open: true
+  backup:
+    image: itzg/mc-backup
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+        read_only: true
+      - type: bind
+        source: ./backup
+        target: /backups
+    network_mode: "service:server"
+  geyser:
+    build: ./Geyser
+    image: geyser-docker:openjdk-17-slim-buster
+    volumes:
+      - type: bind
+        source: ./Geyser/data
+        target: /data
+    ports:
+      - target: 19132
+        published: 19132
+        protocol: udp
