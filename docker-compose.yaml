@@ -19,7 +19,9 @@ services:
         protocol: udp
     environment:
       JAVA_TOOL_OPTIONS: "-Xms2G -Xmx2G"
+    tty: true
     stdin_open: true
+    restart: always
   backup:
     image: itzg/mc-backup
     volumes:
