@@ -7,12 +7,14 @@ export GEYSER_SPIGOT_DIR=./data/plugins
 export GEYSER_SPIGOT_URL=https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/spigot/target/Geyser-Spigot.jar
 # --------------------------------------------------
 deploy: ## deploy minecraft servers with docker
+	@make update-geyser-spigot
+	@make update-floodgate
 	@make agree-eula
 	@make run
 agree-eula:
 	echo 'eula=true' > data/eula.txt
 run:
-	docker compose up -d
+	docker-compose up -d
 # --------------------------------------------------
 update-geyser: ## download latest geyser
 	wget -P ${GEYSER_DIR} ${GEYSER_URL}
