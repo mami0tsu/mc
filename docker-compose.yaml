@@ -18,7 +18,7 @@ services:
         published: 19132
         protocol: udp
     environment:
-      JAVA_TOOL_OPTIONS: "-Xms1G -Xmx1G"
+      JAVA_TOOL_OPTIONS: "-Xms2G -Xmx2G"
     stdin_open: true
   backup:
     image: itzg/mc-backup
