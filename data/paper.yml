@@ -8,7 +8,7 @@
 # Discord: https://discord.gg/papermc
 # IRC: #paper @ irc.esper.net ( https://webchat.esper.net/?channels=paper ) 
 # Website: https://papermc.io/ 
-# Docs: https://paper.readthedocs.org/ 
+# Docs: https://docs.papermc.io/ 
 
 verbose: false
 messages:
@@ -31,8 +31,20 @@ timings:
   history-interval: 300
   history-length: 3600
   server-name: Unknown Server
-config-version: 24
+config-version: 25
 settings:
+  use-dimension-type-for-custom-spawners: false
+  chunk-loading:
+    min-load-radius: 2
+    max-concurrent-sends: 2
+    autoconfig-send-distance: true
+    target-player-chunk-send-rate: 100.0
+    global-max-chunk-send-rate: -1.0
+    enable-frustum-priority: false
+    global-max-chunk-load-rate: -1.0
+    player-max-concurrent-loads: 20.0
+    global-max-concurrent-loads: 500.0
+  time-command-affects-all-worlds: false
   fix-entity-position-desync: true
   use-display-name-in-quit-message: false
   load-permissions-yml-before-plugins: true
@@ -71,6 +83,7 @@ settings:
     page-max: 2560
     total-multiplier: 0.98
   loggers:
+    use-rgb-for-named-text-colors: true
     deobfuscate-stacktraces: true
   item-validation:
     display-name: 8192
@@ -107,6 +120,12 @@ settings:
         action: DROP
 world-settings:
   default:
+    slime-spawn-height:
+      swamp-biome:
+        maximum: 70.0
+        minimum: 50.0
+      slime-chunk:
+        maximum: 40.0
     delay-chunk-unloads-by: 10s
     disable-teleportation-suffocation-check: false
     generator-settings:

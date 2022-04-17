@@ -1,4 +1,6 @@
 # ENVs
+export DISCORDSRV_DIR=./data/plugins
+export DISCORDSRV_URL=https://github.com/DiscordSRV/DiscordSRV/releases/latest
 export FLOODGATE_DIR=./data/plugins
 export FLOODGATE_URL=https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/target/floodgate-spigot.jar
 export GEYSER_DIR=./Geyser/data
@@ -22,6 +24,8 @@ update-geyser-spigot: ## download latest geyser-spigot
 	wget -P ${GEYSER_SPIGOT_DIR} ${GEYSER_SPIGOT_URL}
 update-floodgate: ## download latest floodgate
 	wget -P ${FLOODGATE_DIR} ${FLOODGATE_URL}
+update-discordsrv: ## download lates discordsrv
+	wget -P ${DISCORDSRV_DIR} ${DISCORDSRV_URL}
 # --------------------------------------------------
 help: ## this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'

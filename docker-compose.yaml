@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   server:
-    image: sksat/papermc-docker:1.18.1-openjdk-17-slim-buster
+    image: sksat/papermc-docker:1.18.2-openjdk-17-slim-buster
     volumes:
       - type: bind
         source: ./data
